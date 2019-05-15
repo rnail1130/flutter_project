@@ -17,6 +17,30 @@ class HomeContent extends StatelessWidget{
             color: Colors.grey[100],
           ),
           MiddlPartTwo(),
+          //隔层
+          Container(
+            height: 10.0,
+            color: Colors.grey[100],
+          ),
+          MiddlPartThree(),
+          //隔层
+          Container(
+            height: 10.0,
+            color: Colors.grey[100],
+          ),
+          MiddlPartFour(),
+          //隔层
+          Container(
+            height: 10.0,
+            color: Colors.grey[100],
+          ),
+          MiddlPartFive(),
+          //隔层
+          Container(
+            height: 10.0,
+            color: Colors.grey[100],
+          ),
+          MiddlPartSix(),
         ],
       ),
     );
@@ -325,6 +349,322 @@ class MiddlPartTwo extends StatelessWidget {
             "title":"申请加入",
             "subTitle":"成为居民卡签约商户",
             "src":"assets/images/index_pic10.png"
+          },
+        }),
+      ],
+    );
+  }
+}
+/**
+ * 公共缴费服务
+ */
+class MiddlPartThree extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 35.0,
+          padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+          decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.black12,width: 0.5),bottom: BorderSide(color: Colors.black12,width: 0.5))
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                    height: 20.0,
+                    decoration: BoxDecoration(
+                      border: Border(left: BorderSide(color: Colors.red,width: 5.0)),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(width: 12.0,),
+                        Text(
+                          '公共缴费服务',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    InkWell(
+                      child: Text('更多',style: TextStyle(fontSize: 12.0,color: Colors.grey),),
+                      onTap: (){print('2121');},
+                    ),
+                    Icon(Icons.chevron_right,color: Colors.grey,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        MiddlPartBuild({
+          'part1':{
+            "title":"电费缴费",
+            "subTitle":"公共缴费服务",
+            "src":"assets/images/index_pic12.png"
+          },
+          'part2':{
+            "title":"",
+            "subTitle":"",
+            "src":"assets/images/tm.png"
+          },
+        }),
+      ],
+    );
+  }
+}
+/**
+ * 五元计划介绍
+ */
+class MiddlPartFour extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 35.0,
+          padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+          decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.black12,width: 0.5),bottom: BorderSide(color: Colors.black12,width: 0.5))
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                    height: 20.0,
+                    decoration: BoxDecoration(
+                      border: Border(left: BorderSide(color: Colors.red,width: 5.0)),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(width: 12.0,),
+                        Text(
+                          '五源计划介绍',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    InkWell(
+                      child: Text('更多',style: TextStyle(fontSize: 12.0,color: Colors.grey),),
+                      onTap: (){print('2121');},
+                    ),
+                    Icon(Icons.chevron_right,color: Colors.grey,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        MiddlPartBuild({
+          'part1':{
+            "title":"五源计划",
+            "subTitle":"中国移动智慧城市",
+            "src":"assets/images/index_pic16.png"
+          },
+          'part2':{
+            "title":"居民卡平台",
+            "subTitle":"五源计划构成平台",
+            "src":"assets/images/index_pic17.png"
+          },
+        }),
+        MiddlPartBuild({
+          'part1':{
+            "title":"政企服务平台",
+            "subTitle":"五源计划构成平台",
+            "src":"assets/images/index_pic18.png"
+          },
+          'part2':{
+            "title":"商业管理平台",
+            "subTitle":"五源计划构成平台",
+            "src":"assets/images/index_pic19.png"
+          },
+        }),
+      ],
+    );
+  }
+}
+/**
+ * 市域风貌
+ */
+class MiddlPartFive extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 35.0,
+          padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+          decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.black12,width: 0.5),bottom: BorderSide(color: Colors.black12,width: 0.5))
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                    height: 20.0,
+                    decoration: BoxDecoration(
+                      border: Border(left: BorderSide(color: Colors.red,width: 5.0)),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(width: 12.0,),
+                        Text(
+                          '市域风貌',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    InkWell(
+                      child: Text('更多',style: TextStyle(fontSize: 12.0,color: Colors.grey),),
+                      onTap: (){print('2121');},
+                    ),
+                    Icon(Icons.chevron_right,color: Colors.grey,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        MiddlPartBuild({
+          'part1':{
+            "title":"通化介绍",
+            "subTitle":"市域百科",
+            "src":"assets/images/index_pic24.png"
+          },
+          'part2':{
+            "title":"地方旅游",
+            "subTitle":"景区介绍和旅游攻略",
+            "src":"assets/images/index_pic25.png"
+          },
+        }),
+        MiddlPartBuild({
+          'part1':{
+            "title":"地方资讯",
+            "subTitle":"地方新闻资讯",
+            "src":"assets/images/index_pic26.png"
+          },
+          'part2':{
+            "title":"",
+            "subTitle":"",
+            "src":"assets/images/tm.png"
+          },
+        }),
+      ],
+    );
+  }
+}
+/**
+ * 合作伙伴
+ */
+class MiddlPartSix extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 35.0,
+          padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+          decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.black12,width: 0.5),bottom: BorderSide(color: Colors.black12,width: 0.5))
+          ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                    height: 20.0,
+                    decoration: BoxDecoration(
+                      border: Border(left: BorderSide(color: Colors.red,width: 5.0)),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(width: 12.0,),
+                        Text(
+                          '合作伙伴',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    InkWell(
+                      child: Text('更多',style: TextStyle(fontSize: 12.0,color: Colors.grey),),
+                      onTap: (){print('2121');},
+                    ),
+                    Icon(Icons.chevron_right,color: Colors.grey,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        MiddlPartBuild({
+          'part1':{
+            "title":"中移和包",
+            "subTitle":"金牌金融支付公司",
+            "src":"assets/images/index_pic28.png"
+          },
+          'part2':{
+            "title":"招商银行",
+            "subTitle":"第六大商业银行",
+            "src":"assets/images/index_pic29.png"
+          },
+        }),
+        MiddlPartBuild({
+          'part1':{
+            "title":"红枣科技",
+            "subTitle":"区域支付生态服务商",
+            "src":"assets/images/index_pic30.png"
+          },
+          'part2':{
+            "title":"中国移动",
+            "subTitle":"最大通信运营商",
+            "src":"assets/images/index_pic30.png"
           },
         }),
       ],
