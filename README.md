@@ -1,6 +1,17 @@
 # flutter_repo
 
-A new Flutter project.
+flutter测试的一样项目
+
+#使用的组件
+
+
+
+
+#更新的日期
+
+
+#项目的进度
+
 
 ## Getting Started
 
