@@ -49,7 +49,39 @@ flutter:
     - assets/images/guide_logo.png
     - assets/images/guide_logo_iphonex.png
     - assets/images/saoyisao.png
-
+    - assets/images/bangka.png
+    - assets/images/huiyuan.png
+    - assets/images/jiaofei.png
+    - assets/images/piaoquan.png
+    - assets/images/index_pic.png
+    - assets/images/index_pic2.png
+    - assets/images/index_pic3.png
+    - assets/images/index_pic4.png
+    - assets/images/index_pic5.png
+    - assets/images/index_pic6.png
+    - assets/images/index_pic7.png
+    - assets/images/index_pic8.png
+    - assets/images/index_pic9.png
+    - assets/images/index_pic10.png
+    - assets/images/index_pic11.png
+    - assets/images/index_pic12.png
+    - assets/images/index_pic13.png
+    - assets/images/index_pic14.png
+    - assets/images/index_pic16.png
+    - assets/images/index_pic17.png
+    - assets/images/index_pic18.png
+    - assets/images/index_pic19.png
+    - assets/images/index_pic21.png
+    - assets/images/index_pic22.png
+    - assets/images/index_pic23.png
+    - assets/images/index_pic24.png
+    - assets/images/index_pic25.png
+    - assets/images/index_pic26.png
+    - assets/images/index_pic27.png
+    - assets/images/index_pic28.png
+    - assets/images/index_pic29.png
+    - assets/images/index_pic30.png
+    - assets/images/index_pic31.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

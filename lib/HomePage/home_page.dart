@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-//import 'home_content.dart';
+import 'home_content.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'weather_entity.dart';
+import 'package:flutter_repo/Config/config.dart';
 
 
 class HomePage extends StatelessWidget{
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget{
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: SingleChildScrollView(
-        child: Text('123123'),
+        child: HomeContent(),
       ),
     );
   }
@@ -61,6 +62,7 @@ class _HeaderTitle extends State<HeaderTitle>{
   Future _scanQR() async{
     try{
       String qrResult = await BarcodeScanner.scan();
+      //识别完二维码之后要做的一些事情
       setState(() {
         result = qrResult;
         showAlertDialog(context);
@@ -68,12 +70,14 @@ class _HeaderTitle extends State<HeaderTitle>{
     }on PlatformException catch(ex){
       if(ex.code == BarcodeScanner.CameraAccessDenied)
       {
+        //识别二维码出现错误
         setState(() {
           showAlertDialog(context);
           result = "Camera permission was Denied";
         });
       }
       else{
+        //未识别二维码
         setState(() {
           result = "Unknown Error $ex";
         });
@@ -83,7 +87,7 @@ class _HeaderTitle extends State<HeaderTitle>{
   void getHttp() async {
     var dio = Dio(
         BaseOptions(
-          baseUrl: "http://192.168.1.204:8032/Index.aspx/LatestNews",
+          baseUrl: Config.url+"/Index.aspx/LatestNews",
           //contentType: ContentType.parse("application/json"),
           responseType: ResponseType.json,
           headers: {
@@ -93,7 +97,7 @@ class _HeaderTitle extends State<HeaderTitle>{
     );
     Response<String> response;
 
-    response = await dio.post('http://192.168.1.204:8032/Index.aspx/Weather');
+    response = await dio.post(Config.url+'/Index.aspx/Weather');
     // rvb = response;
     Map userMap = json.decode(response.data.toString());
     var ts = new WeatherD.fromJson(userMap['d']);
