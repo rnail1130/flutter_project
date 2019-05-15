@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo/HomePage/home_page.dart';
 
 
 class BottomNav extends StatefulWidget{
@@ -21,7 +22,7 @@ class _BottomNav extends State<BottomNav>{
   @override
   void initState() {
     list
-      ..add(Text('1111'))
+      ..add(HomePage())
       ..add(Text('2222'))
       ..add(Text('3333'));
     super.initState();

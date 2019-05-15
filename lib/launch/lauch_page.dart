@@ -13,7 +13,7 @@ class LauchPage extends StatefulWidget {
 }
 class _LauchPage extends State<LauchPage>{
   int _status = 1;
-  int _count = 10;
+  int _count = 3;
 
   Widget _buildSplashBg() {
     if(Platform.isIOS){
