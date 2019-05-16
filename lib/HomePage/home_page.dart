@@ -32,11 +32,11 @@ class HeaderTitle extends StatefulWidget{
 }
 class _HeaderTitle extends State<HeaderTitle>{
   String result = "";
-  String postion ='loading';
-  String weather ='loading';
-  String high ='loading';
-  String low ='loading';
-  String aqi ='loading';
+  String postion ='...';
+  String weather ='...';
+  String high ='...';
+  String low ='...';
+  String aqi ='...';
 
 
   void showAlertDialog(BuildContext context) {
@@ -110,6 +110,7 @@ class _HeaderTitle extends State<HeaderTitle>{
       aqi = ts.aqi;
     });
   }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -134,21 +135,17 @@ class _HeaderTitle extends State<HeaderTitle>{
                 ),
               ],
             ),
-            Text(high.substring(2,6)+'  -  '+low.substring(2,6),style: TextStyle(color: Colors.white,fontSize: 16.0),),
+            Text(high.substring(2,6)+'°C  -  '+low.substring(2,6)+"°C",style: TextStyle(color: Colors.white,fontSize: 16.0),),
             Text('|',style: TextStyle(color: Colors.white),),
             Text('空气质量  '+aqi,style: TextStyle(color: Colors.white,fontSize: 16.0),),
             Text('|',style: TextStyle(color: Colors.white),),
             Container(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 15.0, 0.0),
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
               child: InkWell(
                 child: Image.asset('assets/images/saoyisao.png',width: 16.0,),
                 onTap:_scanQR,
               ),
             ),
-/*            IconButton(icon:Image.asset('assets/images/saoyisao.png',width: 16.0,),
-              onPressed: _scanQR
-              ,),*/
-
           ],
         )
     );
