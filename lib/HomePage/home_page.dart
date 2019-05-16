@@ -32,11 +32,11 @@ class HeaderTitle extends StatefulWidget{
 }
 class _HeaderTitle extends State<HeaderTitle>{
   String result = "";
-  String postion ='...';
-  String weather ='...';
-  String high ='...';
-  String low ='...';
-  String aqi ='...';
+  var postion;
+  var weather;
+  var high;
+  var low;
+  var aqi;
 
 
   void showAlertDialog(BuildContext context) {
@@ -84,7 +84,7 @@ class _HeaderTitle extends State<HeaderTitle>{
       }
     }
   }
-  void getHttp() async {
+  Future getHttp() async {
     var dio = Dio(
         BaseOptions(
           baseUrl: Config.url+"/Index.aspx/LatestNews",
@@ -99,55 +99,66 @@ class _HeaderTitle extends State<HeaderTitle>{
 
     response = await dio.post(Config.url+'/Index.aspx/Weather');
     // rvb = response;
-    Map userMap = json.decode(response.data.toString());
-    var ts = new WeatherD.fromJson(userMap['d']);
+    return response;
+  }
+  Widget _buildFuture(BuildContext context, AsyncSnapshot snapshot) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.none://还没有开始网络请求
 
-    setState(() {
-       postion = ts.city;
-      weather = ts.type;
-      high = ts.high;
-      low = ts.low;
-      aqi = ts.aqi;
-    });
+      case ConnectionState.active://正在链接
+
+      case ConnectionState.waiting://等待阶段
+        print('waiting');
+        return Center(
+          child: Text(Config.address+'居民卡APP',
+            style: TextStyle(fontSize: 16.0,color: Colors.white) ,
+          ),
+        );
+      case ConnectionState.done://请求成功
+        Map userMap = json.decode(snapshot.data.toString());
+        var ts = new WeatherD.fromJson(userMap['d']);
+        print(ts.high);
+         return Container(
+             child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: <Widget>[
+                 Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: <Widget>[
+                     Column(
+                       children: <Widget>[
+                         Text(ts.city,style: TextStyle(color: Colors.white,fontSize: 11.0,fontWeight:FontWeight.w700 ),),
+                         Text(ts.type,style: TextStyle(color: Colors.white),),
+                       ],
+                     ),
+                   ],
+                 ),
+                 Text(ts.high.substring(2,6)+'  -  '+ts.low.substring(2,6),style: TextStyle(color: Colors.white,fontSize: 16.0),),
+                 Text('|',style: TextStyle(color: Colors.white),),
+                 Text('空气质量  '+ts.aqi,style: TextStyle(color: Colors.white,fontSize: 16.0),),
+                 Text('|',style: TextStyle(color: Colors.white),),
+                 Container(
+                   padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
+                   child: InkWell(
+                     child: Image.asset('assets/images/saoyisao.png',width: 16.0,),
+                     onTap:_scanQR,
+                   ),
+                 ),
+               ],
+             )
+         );
+
+      default:
+        return null;
+    }
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    getHttp();
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Text(postion,style: TextStyle(color: Colors.white,fontSize: 11.0,fontWeight:FontWeight.w700 ),),
-                    Text(weather,style: TextStyle(color: Colors.white),),
-                  ],
-                ),
-              ],
-            ),
-            Text(high.substring(2,6)+'°C  -  '+low.substring(2,6)+"°C",style: TextStyle(color: Colors.white,fontSize: 16.0),),
-            Text('|',style: TextStyle(color: Colors.white),),
-            Text('空气质量  '+aqi,style: TextStyle(color: Colors.white,fontSize: 16.0),),
-            Text('|',style: TextStyle(color: Colors.white),),
-            Container(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0),
-              child: InkWell(
-                child: Image.asset('assets/images/saoyisao.png',width: 16.0,),
-                onTap:_scanQR,
-              ),
-            ),
-          ],
-        )
+    return FutureBuilder(
+      builder: _buildFuture,
+      future:  getHttp(),
     );
   }
 }

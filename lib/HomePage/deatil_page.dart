@@ -138,7 +138,7 @@ class _ApiHomeState extends State<ApiHome> {
     );
     return childWidget;
   }
-  void getData () async {
+  Future getData () async {
     var dio = Dio(
         BaseOptions(
           baseUrl: Config.url+"/Index.aspx/LatestNews",
@@ -153,20 +153,36 @@ class _ApiHomeState extends State<ApiHome> {
     response = await dio.post(Config.url+'/Article.aspx/FindArticle',
       data: ({'ArticleId':this.id}),
     );
-
-    Map userMap = json.decode(response.data.toString());
-
-    setState(() {
-      var trrs = userMap['d']['Result']['Content'];
-      dz = trrs.toString();
-    });
+    return response;
   }
 
+  Widget _buildFuture(BuildContext context, AsyncSnapshot snapshot) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.none://还没有开始网络请求
 
-  @override
-  void initState() {
-    super.initState();
-    getData();
+      case ConnectionState.active://正在链接
+
+      case ConnectionState.waiting://等待阶段
+        print('waiting');
+        return Center(
+          child:childWidget(),
+        );
+      case ConnectionState.done://请求成功
+        Map userMap = json.decode(snapshot.data.toString());
+        var trrs = userMap['d']['Result']['Content'];
+        dz = trrs.toString();
+        return Container(
+          padding: EdgeInsets.all(15.0),
+          child:Html(
+            data: dz,
+          ),
+        );
+
+
+
+      default:
+        return null;
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -183,12 +199,19 @@ class _ApiHomeState extends State<ApiHome> {
 
       ),
       body: SingleChildScrollView(
-          child:Container(
+          child:FutureBuilder(
+            builder: _buildFuture,
+            future:  getData(),
+          )
+
+
+
+/*          Container(
             padding: EdgeInsets.all(15.0),
             child:dz == null ?childWidget():Html(
               data: dz,
             ),
-          )
+          )*/
       ),
     );
   }

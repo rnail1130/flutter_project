@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo/HomePage/home_page.dart';
+import 'package:flutter_repo/MyCard/my_card.dart';
 
 
 class BottomNav extends StatefulWidget{
@@ -23,7 +24,7 @@ class _BottomNav extends State<BottomNav>{
   void initState() {
     list
       ..add(HomePage())
-      ..add(Text('2222'))
+      ..add(MyCard())
       ..add(Text('3333'));
     super.initState();
   }
