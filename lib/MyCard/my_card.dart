@@ -107,6 +107,7 @@ class _MyCardState extends State<MyCard> {
                             )
                         ),
                         onTap: (){
+                          _counterBloc.counter.add(code);
                           //添加一个页面
                           Navigator.push<String>(
                               context,
