@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: '启动页',
       theme: ThemeData(
+        platform: TargetPlatform.iOS,
         brightness: Brightness.light,
         primaryColor: Colors.amber[700],
         accentColor: Colors.amber[400],
@@ -22,3 +23,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

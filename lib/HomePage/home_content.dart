@@ -930,7 +930,10 @@ class _MiddlPartBuildExpanded extends State<MiddlPartBuildExpanded>{
       child: InkWell(
         onTap: (){
           print(this.datae['url']);
-          Navigator.push(context, CustomeRouter(Deatile(this.datae['title'],url: this.datae['url'],)));
+          print(this.datae['title']);
+          if(this.datae['title'] != null && this.datae['url'] != null){
+            Navigator.push(context, CustomeRouter(Deatile(this.datae['title'],url: this.datae['url'],)));
+          }
         },
         child: Container(
           decoration: BoxDecoration(

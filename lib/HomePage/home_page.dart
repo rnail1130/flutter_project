@@ -117,7 +117,7 @@ class _HeaderTitle extends State<HeaderTitle>{
       case ConnectionState.done://请求成功
         Map userMap = json.decode(snapshot.data.toString());
         var ts = new WeatherD.fromJson(userMap['d']);
-        print(ts.high);
+
          return Container(
              child: Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,

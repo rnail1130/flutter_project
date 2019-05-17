@@ -8,6 +8,8 @@
          FlutterApplication and put your custom class here. -->
     <uses-permission android:name="android.permission.CAMERA" />
     <application
+
+        android:usesCleartextTraffic="true"
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_repo"
         android:icon="@mipmap/ic_launcher">
