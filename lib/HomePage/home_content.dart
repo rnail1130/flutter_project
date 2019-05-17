@@ -830,7 +830,11 @@ class HomeList extends StatelessWidget{
     // TODO: implement build
     return InkWell(
       onTap: (){
-        Navigator.push(context, CustomeRouter(Deatile(this.title,id: this.id,)));
+       // Navigator.push(context, CustomeRouter(Deatile(this.title,id: this.id,)));
+        Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => Deatile(this.title,id: this.id,)),
+        );
       },
       child: Container(
           height: 90.0,

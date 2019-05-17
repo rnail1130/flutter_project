@@ -98,6 +98,7 @@ flutter:
     - assets/images/index_pic30.png
     - assets/images/index_pic31.png
     - assets/images/tm.png
+    - assets/images/myCard.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
