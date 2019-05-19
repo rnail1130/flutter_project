@@ -21,7 +21,7 @@ class CodeBloc {
     _counterActionController.close();
     _counterController.close();
   }
-
+  String codes = '21314124';
   void log() {
     print('BLoC');
   }
