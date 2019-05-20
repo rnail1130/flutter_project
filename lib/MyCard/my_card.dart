@@ -114,7 +114,7 @@ class _MyCardState extends State<MyCard> {
                                     Animation<double> animation2,
                                     ) {
                                   // 跳转的路由对象
-                                  return LargePage(code);
+                                  return LargePage(code,0);
                                 }, transitionsBuilder: (
                                 BuildContext context,
                                 Animation<double> animation1,
@@ -131,12 +131,40 @@ class _MyCardState extends State<MyCard> {
                     ),
 
                     Text(code,style: fontStyle,),
-                    Center(
-                      child:new QrImage(
-                        data: code,
-                        size: 140.0,
+                    InkWell(
+                      child:Center(
+                        child:new QrImage(
+                          data: code,
+                          size: 140.0,
+                        ),
                       ),
+                      onTap: (){
+                        //添加一个页面
+                        Navigator.push<String>(
+                            context,
+                            new PageRouteBuilder(
+                                pageBuilder: (
+                                    BuildContext context,
+                                    Animation<double> animation1,
+                                    Animation<double> animation2,
+                                    ) {
+                                  // 跳转的路由对象
+                                  return LargePage(code,1);
+                                }, transitionsBuilder: (
+                                BuildContext context,
+                                Animation<double> animation1,
+                                Animation<double> animation2,
+                                Widget child
+                                ) {
+                              return FadeTransition (
+                                opacity: Tween(begin: 0.0,end:1.0)
+                                    .animate(CurvedAnimation(parent: animation1, curve: Curves.easeIn)),
+                                child: child,
+                              );
+                            }));
+                      },
                     ),
+
                     Text('虚拟卡条形码和二维码每30秒自动更新',style: fontStyle,),
                   ],
                 ),

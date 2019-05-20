@@ -39,6 +39,7 @@ class _HeaderTitle extends State<HeaderTitle>{
   var aqi;
 
 
+
   void showAlertDialog(BuildContext context) {
     showDialog(
         context: context,
@@ -117,7 +118,9 @@ class _HeaderTitle extends State<HeaderTitle>{
       case ConnectionState.done://请求成功
         Map userMap = json.decode(snapshot.data.toString());
         var ts = new WeatherD.fromJson(userMap['d']);
-
+        RegExp exp = new RegExp(r'\d{1,2}');
+        ts.high = exp.stringMatch(ts.high);
+        ts.low = exp.stringMatch(ts.low);
          return Container(
              child: Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +136,7 @@ class _HeaderTitle extends State<HeaderTitle>{
                      ),
                    ],
                  ),
-                 Text(ts.high.substring(2,6)+'  -  '+ts.low.substring(2,6),style: TextStyle(color: Colors.white,fontSize: 16.0),),
+                 Text(ts.high.toString()+'°C  -  '+ts.low.toString()+"°C",style: TextStyle(color: Colors.white,fontSize: 16.0),),
                  Text('|',style: TextStyle(color: Colors.white),),
                  Text('空气质量  '+ts.aqi,style: TextStyle(color: Colors.white,fontSize: 16.0),),
                  Text('|',style: TextStyle(color: Colors.white),),
